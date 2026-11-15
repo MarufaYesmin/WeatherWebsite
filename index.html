@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather App</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="header">
+
+            <div class="logo">
+                <i class="fa-solid fa-cloud-sun"></i>
+                <h2>Weather<span>App</span></h2>
+            </div>
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="city-input"
+                    placeholder="Search city..."
+                    autocomplete="off"
+                >
+
+                <button id="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Search
+                </button>
+
+                <button id="location-btn" title="Use My Location">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= GREETING ================= -->
+
+        <p id="weather-greeting" class="weather-greeting">
+            Welcome! Check your local weather.
+        </p>
+
+
+        <!-- ================= LOADING & ERROR ================= -->
+
+        <p id="loading" class="loading-message">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            Loading weather...
+        </p>
+
+        <p id="error-message" class="error-message"></p>
+
+
+        <!-- ================= CURRENT WEATHER ================= -->
+
+        <main>
+
+            <section class="current-weather">
+
+                <div class="weather-info">
+
+                    <h2 id="city-name">Chattogram, Bangladesh</h2>
+
+                    <p id="current-date">Loading date...</p>
+
+                    <div class="temperature-box">
+
+                        <h1 id="temperature">--°C</h1>
+
+                        <button id="unit-btn" class="unit-btn">
+                            Switch to °F
+                        </button>
+
+                    </div>
+
+                    <p id="weather-description">Loading...</p>
+
+                    <p class="feels-like">
+                        Feels Like:
+                        <span id="feels-like">--°C</span>
+                    </p>
+
+                </div>
+
+                <div class="weather-image">
+
+                    <i id="weather-icon" class="fa-solid fa-sun"></i>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= WEATHER DETAILS ================= -->
+
+            <section class="weather-details">
+
+                <h2>Today's Highlights</h2>
+
+                <div class="details-grid">
+
+                    <!-- Humidity -->
+                    <div class="detail-card">
+
+                        <i class="fa-solid fa-droplet"></i>
+
+                        <h3>Humidity</h3>
+
+                        <p id="humidity">--%</p>
+
+                    </div>
+
+
+                    <!-- Wind Speed -->
+                    <div class="detail-card">
+
+                        <i class="fa-solid fa-wind"></i>
+
+                        <h3>Wind Speed</h3>
+
+                        <p id="wind-speed">-- km/h</p>
+
+                    </div>
+
+
+                    <!-- Feels Like -->
+                    <div class="detail-card">
+
+                        <i class="fa-solid fa-temperature-half"></i>
+
+                        <h3>Feels Like</h3>
+
+                        <p id="feels-detail">--°C</p>
+
+                    </div>
+
+
+                    <!-- Pressure -->
+                    <div class="detail-card">
+
+                        <i class="fa-solid fa-gauge-high"></i>
+
+                        <h3>Pressure</h3>
+
+                        <p id="pressure">-- hPa</p>
+
+                    </div>
+
+
+                    <!-- UV Index -->
+                    <div class="detail-card">
+
+                        <i class="fa-solid fa-sun"></i>
+
+                        <h3>UV Index</h3>
+
+                        <p id="uv-index">--</p>
+
+                        <span id="uv-level">Loading...</span>
+
+                    </div>
+
+
+                    <!-- Air Quality -->
+                    <div class="detail-card">
+
+                        <i class="fa-solid fa-smog"></i>
+
+                        <h3>Air Quality Index</h3>
+
+                        <p id="aqi-value">--</p>
+
+                        <span id="aqi-level">Loading...</span>
+
+                    </div>
+
+
+                    <!-- PM2.5 -->
+                    <div class="detail-card">
+
+                        <i class="fa-solid fa-cloud"></i>
+
+                        <h3>PM2.5</h3>
+
+                        <p id="pm25-value">--</p>
+
+                    </div>
+
+
+                    <!-- PM10 -->
+                    <div class="detail-card">
+
+                        <i class="fa-solid fa-wind"></i>
+
+                        <h3>PM10</h3>
+
+                        <p id="pm10-value">--</p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= SUNRISE & SUNSET ================= -->
+
+            <section class="sun-section">
+
+                <h2>Sunrise & Sunset</h2>
+
+                <div class="sun-time-section">
+
+                    <!-- Sunrise -->
+                    <div class="sun-time-card">
+
+                        <i class="fa-solid fa-sun"></i>
+
+                        <div>
+                            <h3>Sunrise</h3>
+                            <p id="sunrise-time">--</p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Sunset -->
+                    <div class="sun-time-card">
+
+                        <i class="fa-solid fa-moon"></i>
+
+                        <div>
+                            <h3>Sunset</h3>
+                            <p id="sunset-time">--</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= WEATHER ALERTS ================= -->
+
+            <section class="alert-section">
+
+                <h2>Weather Alerts & Recommendations</h2>
+
+                <div id="alert-container" class="alert-container">
+
+                    <!-- Weather alerts will be added by JavaScript -->
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= HOURLY FORECAST ================= -->
+
+            <section class="hourly-section">
+
+                <h2>Hourly Forecast</h2>
+
+                <div
+                    class="hourly-container"
+                    id="hourly-container"
+                >
+
+                    <!-- Hourly forecast cards will be added by JavaScript -->
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= 5 DAY FORECAST ================= -->
+
+            <section class="forecast-section">
+
+                <h2>5-Day Forecast</h2>
+
+                <div
+                    class="forecast-container"
+                    id="forecast-container"
+                >
+
+                    <!-- Forecast cards will be added by JavaScript -->
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer class="footer">
+
+            <p>
+                © 2026 WeatherApp. All Rights Reserved.
+            </p>
+
+            <p>
+                Weather data provided by Open-Meteo.
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
